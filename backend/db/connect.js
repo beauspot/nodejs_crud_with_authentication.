@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-exports.connectDB = async (url) => {
+const connectDB = async (url) => {
   try {
     await mongoose.connect(url);
-    console.info("The Server is connected to The DB!");
+    console.log("The Server is connected to The DB!");
   } catch (error) {
-    return { message: error.message };
+    return { message: error };
   }
 };
+
+module.exports = connectDB;
